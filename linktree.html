@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPI Miracatu - Links</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f4f4f9, #d6e4f0);
+            position: relative;
+            overflow: auto; /* Permite o scroll em dispositivos móveis */
+        }
+        h1 {
+            color: #333;
+            margin: 0;
+        }
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 90%;
+            max-width: 400px;
+            margin-bottom: 50px;;
+        }
+        .link {
+            text-decoration: none;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            background-color: #607d8b; /* Azul acinzentado */
+        }
+        .link:hover {
+            background-color: #455a64; /* Azul acinzentado mais escuro ao passar o mouse */
+        }
+        .link-facebook {
+            background-color: #3b5998; /* Cor do Facebook */
+        }
+        .link-facebook:hover {
+            background-color: #2d4373;
+        }
+        .link-instagram {
+            background-color: #e4405f; /* Cor do Instagram */
+        }
+        .link-instagram:hover {
+            background-color: #bc2a8d;
+        }
+        .link-miracatu {
+            background-color: #34a853; /* Verde para localização */
+        }
+        .link-miracatu:hover {
+            background-color: #2c8c46;
+        }
+        .link-pedro-barros {
+            background-color: #4285f4; /* Azul para localização */
+        }
+        .link-pedro-barros:hover {
+            background-color: #3367d6;
+        }
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.3; /* Reduzindo a opacidade para maior sutileza */
+            z-index: -1;
+        }
+        .shape1 {
+            width: 200px;
+            height: 200px;
+            background-color: #ffd1c1; /* Cor mais suave */
+            top: 10%;
+            left: 15%;
+        }
+        .shape2 {
+            width: 300px;
+            height: 300px;
+            background-color: #cbb4d4; /* Cor mais suave */
+            bottom: 5%;
+            right: 10%;
+        }
+        .shape3 {
+            width: 150px;
+            height: 150px;
+            background-color: #cdeac0; /* Cor mais suave */
+            top: 50%;
+            left: 70%;
+            transform: translate(-50%, -50%);
+        }
+        .welcome-message {
+            text-align: center;
+            margin: 10px 0 20px 0;
+            font-size: 18px; /* Aumentando o tamanho da fonte */
+            color: #333; /* Cor mais vibrante para destaque */
+            line-height: 1.6;
+            max-width: 600px;
+        }
+        .modal {
+            display: none; /* Oculto por padrão */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .modal-content h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .modal-content p {
+            color: #555;
+            line-height: 1.5;
+        }
+        .modal-content .close {
+            background: #607d8b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .modal-content .close:hover {
+            background: #455a64;
+        }
+        .modal-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .modal-content th, .modal-content td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .modal-content th {
+            background-color: #f4f4f9;
+            color: #333;
+            font-weight: bold;
+        }
+        .modal-content tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+    <img src="logo.svg" alt="Logo da IPI Miracatu" style="width: 150px; height: auto; margin-bottom: 10px;">
+    <h1>IPI Miracatu</h1>
+    <p class="welcome-message">
+        <strong>Seja muito bem-vindo à nossa Igreja!</strong><br>
+        Somos uma comunidade cristã que busca viver e compartilhar o amor de Jesus. Nossos cultos são simples, alegres e centrados na Palavra de Deus.
+    </p>
+    <div class="link-container">
+        <a class="link link-facebook" href="https://www.facebook.com/ipimiracatu" target="_blank">
+            <i class="fab fa-facebook-f"></i> ipimiracatu
+        </a>
+        <a class="link link-instagram" href="https://www.instagram.com/ipibmiracatu" target="_blank">
+            <i class="fab fa-instagram"></i> ipibmiracatu
+        </a>
+        <a class="link link-miracatu" href="https://maps.app.goo.gl/9zNmp6LadQNFPB7G8" target="_blank">
+            <i class="fas fa-map-marker-alt"></i> Igreja em Miracatu
+        </a>
+        <a class="link link-pedro-barros" href="https://maps.app.goo.gl/4M2YJWYWS6T27q6s9" target="_blank">
+            <i class="fas fa-map-marker-alt"></i> Congregação em Pedro Barros
+        </a>
+        <a class="link link-programacao" href="#" onclick="openModal()">
+            <i class="fas fa-clock"></i> &nbsp; Programação Semanal
+        </a>
+        <a class="link" href="./ipib-afirmacao-de-fe-2013.pdf">
+            <i class="fas fa-file-lines"></i> &nbsp; Afirmação de Fé (2013)
+        </a>
+        <a class="link" href="./ipib-declaracao-de-fe-1938.pdf">
+            <i class="fas fa-file-lines"></i> &nbsp; Declaração de Fé (1938)
+        </a>
+        <a class="link" href="./ipib-confissao-de-fe-brasileira.pdf">
+            <i class="fas fa-file-lines"></i> &nbsp; Confissão de Fé Brasileira
+        </a>
+        <a class="link" href="./ipib-o-credo-dos-apostolos.pdf">
+            <i class="fas fa-file-lines"></i> &nbsp; O Credo dos Apóstolos
+        </a>
+        <a class="link" href="./ipib-confissao-de-fe-de-westminster.pdf">
+            <i class="fas fa-file-lines"></i> &nbsp; Confissão de Fé de Westminster
+        </a>
+        <a class="link" href="./ipib-catecismo-menor-de-westminster.pdf">
+            <i class="fas fa-file-lines"></i> &nbsp; Catecistmo Menor de Westminster
+        </a>
+        <a class="link" href="./ipib-catecismo-maior-de-westminster.pdf">
+            <i class="fas fa-file-lines"></i> &nbsp; Catecismo Maior de Westminster
+        </a>
+    </div>
+
+    <div class="modal" id="programacaoModal">
+        <div class="modal-content">
+            <h2>Programação Semanal</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Terça</td>
+                        <td>19:30</td>
+                        <td>Reunião de Oração</td>
+                    </tr>
+                    <tr>
+                        <td>Quinta</td>
+                        <td>19:30</td>
+                        <td>Estudo Bíblico</td>
+                    </tr>
+                    <tr>
+                        <td>Sábado</td>
+                        <td>19:30</td>
+                        <td>Culto na congregação em Pedro Barros</td>
+                    </tr>
+                    <tr>
+                        <td>Domingo</td>
+                        <td>19:30</td>
+                        <td>Culto na igreja em Miracatu</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                "Pois onde se reunirem dois ou três em meu nome, ali eu estou no meio deles."<br>
+                <em>Mateus 18:20</em>
+            </p>
+            <p>Venha participar conosco e seja abençoado!</p>
+            <button class="close" onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('programacaoModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('programacaoModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
