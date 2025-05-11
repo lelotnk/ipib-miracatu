@@ -123,6 +123,8 @@
             text-align: center;
             max-width: 400px;
             width: 90%;
+            max-height: 90%; /* Limita a altura do modal */
+            overflow-y: auto; /* Permite scroll vertical */
         }
         .modal-content h2 {
             margin-top: 0;
@@ -162,6 +164,20 @@
         .modal-content tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+        .modal-content .download {
+            background: #607d8b; /* Azul acinzentado */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .modal-content .download:hover {
+            background: #455a64; /* Azul acinzentado mais escuro ao passar o mouse */
+        }
     </style>
 </head>
 <body>
@@ -175,6 +191,15 @@
         Somos uma comunidade cristã que busca viver e compartilhar o amor de Jesus. Nossos cultos são simples, alegres e centrados na Palavra de Deus.
     </p>
     <div class="link-container">
+        <a class="link" href="#" onclick="openModal('quemSomosModal')">
+            <i class="fas fa-church"></i> &nbsp; Quem somos
+        </a>
+        <a class="link" href="#" onclick="openAfirmaModal()">
+            <i class="fas fa-cross"></i> &nbsp; No que cremos
+        </a>
+        <a class="link" href="#" onclick="openModal('nossaHistoriaModal')">
+            <i class="fas fa-book"></i> &nbsp; Nossa História
+        </a>
         <a class="link link-facebook" href="https://www.facebook.com/ipibmiracatu" target="_blank">
             <i class="fab fa-facebook-f"></i> ipibmiracatu
         </a>
@@ -187,11 +212,8 @@
         <a class="link link-pedro-barros" href="https://maps.app.goo.gl/4M2YJWYWS6T27q6s9" target="_blank">
             <i class="fas fa-map-marker-alt"></i> Congregação em Pedro Barros
         </a>
-        <a class="link link-programacao" href="#" onclick="openModal()">
+        <a class="link link-programacao" href="#" onclick="openModal('programacaoModal')">
             <i class="fas fa-clock"></i> &nbsp; Programação Semanal
-        </a>
-        <a class="link" target="_blank" href="./ipib-afirmacao-de-fe-2013.pdf">
-            <i class="fas fa-file-lines"></i> &nbsp; Afirmação de Fé (2013)
         </a>
         <a class="link" target="_blank" href="./ipib-declaracao-de-fe-1938.pdf">
             <i class="fas fa-file-lines"></i> &nbsp; Declaração de Fé (1938)
@@ -245,17 +267,61 @@
                 <em>Mateus 18:20</em>
             </p>
             <p>Venha participar conosco e seja abençoado!</p>
-            <button class="close" onclick="closeModal()">Fechar</button>
+            <button class="close" onclick="closeModal('programacaoModal')">Fechar</button>
+        </div>
+    </div>
+
+    <div class="modal" id="afirmaModal">
+        <div class="modal-content">
+            <h2>Afirmação de Fé (2013)</h2>
+            <p><strong>Cremos na Santa Trindade, modelo de comunhão, unidade e amor.</strong></p>
+            <p><strong>Cremos no Deus Pai</strong>, criador dos céus e da terra e de todos os seres humanos.</p>
+            <p><strong>Cremos em Jesus Cristo, seu único Filho</strong>, nosso Senhor e Salvador, que traz boas notícias aos pobres, liberdade aos cativos, vista aos cegos, libertação aos oprimidos e perdão para os nossos pecados.</p>
+            <p><strong>Cremos no Espírito Santo</strong> derramado sobre filhos e filhas, moços e velhos, servos e servas. Cremos na Igreja, família da fé, que abriga, acolhe e promove uma espiritualidade fundamentada na graça de Deus, que traz vida em plenitude, segundo as Sagradas Escrituras.</p>
+            <p><strong>Cremos que nossa missão é a proclamação do evangelho</strong> do Reino de Deus, para paz, justiça, liberdade e solidariedade entre todos, até que Jesus Cristo volte.</p>
+            <p>Amém.</p>
+            <a class="download" href="./ipib-afirmação-de-fe-2013.pdf" target="_blank">Baixar PDF</a>
+            <button class="close" onclick="closeAfirmaModal()">Fechar</button>
+        </div>
+    </div>
+
+    <div class="modal" id="quemSomosModal">
+        <div class="modal-content">
+            <h2>IPI Miracatu</h2>
+            <p>Somos uma comunidade cristã que busca viver e compartilhar o amor de Jesus em tudo o que fazemos. Acreditamos que a fé não é apenas para ser falada, mas vivida — com simplicidade, verdade e compaixão.</p>
+            <p>Nossos cultos são simples, alegres e centrados na Palavra de Deus. Aqui, cada pessoa é acolhida como parte de uma grande família, independentemente de sua história. Valorizamos a comunhão, a oração, o ensino bíblico e a prática do amor ao próximo, dentro e fora da igreja.</p>
+            <p>Cremos que a vida com Deus é um caminho de transformação e esperança. Por isso, incentivamos cada membro — e cada visitante — a crescer espiritualmente, servir com seus dons e caminhar em comunidade. Temos atividades para todas as idades e espaços onde você pode ser cuidado e também cuidar de outros.</p>
+            <p>Seja qual for o seu momento de vida, queremos caminhar com você. Nossa igreja existe para ser um lugar de encontro com Deus, com o próximo e consigo mesmo.</p>
+            <p><strong>Você é muito bem-vindo aqui.</strong></p>
+            <button class="close" onclick="closeModal('quemSomosModal')">Fechar</button>
+        </div>
+    </div>
+
+    <div class="modal" id="nossaHistoriaModal">
+        <div class="modal-content">
+            <h2>Nossa História</h2>
+            <p>A Igreja Presbiteriana Independente do Brasil (IPIB) foi fundada em 31 de julho de 1903, em São Paulo, por líderes comprometidos com uma fé reformada, nacional e engajada com a missão do Reino de Deus. Desde então, a IPIB tem se dedicado à proclamação do evangelho com ênfase na graça, na justiça e na participação ativa de todos os membros.</p>
+            <p>Em Miracatu, e em Pedro Barros, a Igreja Presbiteriana Independente foi organizada em 16 de março de 1980, tornando-se uma comunidade viva de fé, acolhimento e serviço. Desde sua fundação, tem sido um espaço de crescimento espiritual e comunhão cristã para muitas famílias na cidade e região.</p>
+            <p>Hoje, sob a liderança do reverendo Homero Diáz, seguimos firmes na missão de anunciar o evangelho com amor, simplicidade e compromisso com a Palavra de Deus.</p>
+            <button class="close" onclick="closeModal('nossaHistoriaModal')">Fechar</button>
         </div>
     </div>
 
     <script>
-        function openModal() {
-            document.getElementById('programacaoModal').style.display = 'flex';
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
         }
 
-        function closeModal() {
-            document.getElementById('programacaoModal').style.display = 'none';
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function openAfirmaModal() {
+            document.getElementById('afirmaModal').style.display = 'flex';
+        }
+
+        function closeAfirmaModal() {
+            document.getElementById('afirmaModal').style.display = 'none';
         }
     </script>
 </body>
